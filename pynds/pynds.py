@@ -31,6 +31,10 @@ class PyNDS:
             self._nds.run_until_frame()
             self._nds.get_frame()
 
+    #audio
+    def get_audio(self, count: int = 699) -> np.ndarray:
+        return self._nds.get_audio_samples(count)
+
     def get_frame(self) -> Union[Tuple[np.ndarray, np.ndarray], np.ndarray]:
         if (self.is_gba):
             frame = self._nds.get_gba_frame()
